@@ -1,6 +1,5 @@
-# animationandscreenutil
-
-A new Flutter project.
+# Flutter Implicit Animation Playground
+---
 
 ## Getting Started
 
