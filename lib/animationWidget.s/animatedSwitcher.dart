@@ -10,6 +10,7 @@ class AnimatedSwitcherExample extends StatefulWidget {
 class _AnimatedSwitcherExampleState extends State<AnimatedSwitcherExample> {
   int num = 0;
   bool isTop = false;
+  double number = 0.3;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +46,7 @@ class _AnimatedSwitcherExampleState extends State<AnimatedSwitcherExample> {
               ),
               TweenAnimationBuilder<double>(
                 duration: Duration(seconds: 1),
-                tween: Tween<double>(begin: 0, end: 1),
+                tween: Tween<double>(begin: 0, end: number),
                 builder: (context, value, child) {
                   return Opacity(
                     opacity: value,
@@ -55,7 +56,12 @@ class _AnimatedSwitcherExampleState extends State<AnimatedSwitcherExample> {
                     ),
                   );
                 },
-                child: FlutterLogo(size: 100),
+                child: Column(
+                  children: [
+                    FlutterLogo(size: 100),
+                    Text('Hello, Flutter!', style: TextStyle(fontSize: 24.sp))
+                  ],
+                ),
               ),
               AnimatedAlign(
                 duration: Duration(seconds: 1),
@@ -65,6 +71,7 @@ class _AnimatedSwitcherExampleState extends State<AnimatedSwitcherExample> {
               AnimatedSwitcher(
                 switchInCurve: Curves.slowMiddle,
                 switchOutCurve: Curves.fastOutSlowIn,
+                // reverseDuration: Duration(seconds: 5),
                 duration: Duration(milliseconds: 500),
                 transitionBuilder: (Widget child, Animation<double> animation) {
                   // You can use different animations here (fade, scale, slide)
@@ -81,6 +88,8 @@ class _AnimatedSwitcherExampleState extends State<AnimatedSwitcherExample> {
               ElevatedButton(
                 onPressed: () {
                   isTop = !isTop;
+                  number = number == 0.3 ? 1 : 0.3;
+                  // number = number == 0.7 ? 1 : 0.3;
                   setState(() {
                     num++;
                   });
