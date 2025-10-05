@@ -1,4 +1,4 @@
-import 'package:animationandscreenutil/animationWidget.s/animatedSwitcher.dart';
+import 'package:animationandscreenutil/animationWidget/animatedSwitcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

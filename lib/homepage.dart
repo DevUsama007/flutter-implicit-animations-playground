@@ -1,13 +1,15 @@
-import 'package:animationandscreenutil/animationWidget.s/animatedAlighn.dart';
-import 'package:animationandscreenutil/animationWidget.s/animatedContainer.dart';
-import 'package:animationandscreenutil/animationWidget.s/animatedCrossFade.dart';
-import 'package:animationandscreenutil/animationWidget.s/animatedOpacity.dart';
-import 'package:animationandscreenutil/animationWidget.s/animatedPossition.dart';
-import 'package:animationandscreenutil/animationWidget.s/animatedSwitcher.dart';
-import 'package:animationandscreenutil/animationWidget.s/animatedtext.dart';
+import 'package:animationandscreenutil/animationWidget/animatedAlighn.dart';
+import 'package:animationandscreenutil/animationWidget/animatedContainer.dart';
+import 'package:animationandscreenutil/animationWidget/animatedCrossFade.dart';
+import 'package:animationandscreenutil/animationWidget/animatedOpacity.dart';
+import 'package:animationandscreenutil/animationWidget/animatedPossition.dart';
+import 'package:animationandscreenutil/animationWidget/animatedSwitcher.dart';
+import 'package:animationandscreenutil/animationWidget/animatedtext.dart';
+import 'package:animationandscreenutil/animationWidget/tweenAnimation.dart';
 import 'package:flutter/material.dart';
 
-import 'animationWidget.s/animatedPadding.dart';
+import 'animationWidget/animatedList.dart';
+import 'animationWidget/animatedPadding.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -26,6 +28,8 @@ class _HomepageState extends State<Homepage> {
     'AnimatedPosition',
     'AnimatedAlign',
     'AnimatedSwitcher',
+    'AnimatedList',
+    'TweenAnimation',
   ];
   @override
   Widget build(BuildContext context) {
@@ -96,6 +100,20 @@ class _HomepageState extends State<Homepage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => AnimatedAlignment(),
+                            ));
+                        break;
+                      case 'AnimatedList':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AnimatedListExample(),
+                            ));
+                        break;
+                      case 'TweenAnimation':
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TweenAnimationWidget(),
                             ));
                         break;
                       default:
