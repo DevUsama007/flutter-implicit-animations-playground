@@ -30,6 +30,7 @@ class _TweenAnimationWidgetState extends State<TweenAnimationWidget> {
               ),
               tween: Tween(begin: 0.0, end: 1.0),
               duration: Duration(seconds: 2),
+              curve: Curves.easeInCirc,
               builder: (context, double tweenValue, child) {
                 return Opacity(
                   opacity: tweenValue,
