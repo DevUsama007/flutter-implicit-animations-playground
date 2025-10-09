@@ -83,24 +83,24 @@ class _ExplicitAnimatedListState extends State<ExplicitAnimatedList> {
   }
 
   void _removeItem(int index) {
-    final String removedItem = myList.removeAt(index);
-    _key.currentState!.removeItem(
+    final String removedItem = myList2.removeAt(index);
+    _key1.currentState!.removeItem(
       index,
       (context, animation) => SlideTransition(
         position: Tween<Offset>(
           begin: Offset(1, -1),
           end: Offset(0, 0),
         ).animate(animation),
-        child: ListTile(
-          title: Text('Item $removedItem'),
+        child: Card(
+          child: Text('Item $removedItem'),
         ),
       ),
     );
   }
 
   addItem() {
-    myList.add('Developer Group ${myList.length}');
-    _key.currentState?.insertItem(myList.length - 1);
+    myList2.add('Developer Group ${myList2.length}');
+    _key1.currentState?.insertItem(myList2.length - 1);
   }
 
   @override
@@ -132,9 +132,9 @@ class _ExplicitAnimatedListState extends State<ExplicitAnimatedList> {
               itemBuilder: (context, index, animation) {
                 return SlideTransition(
                     child: InkWell(
-                      onTap: () {
-                        _removeItem(index);
-                      },
+                      // onTap: () {
+                      //   _removeItem(index);
+                      // },
                       child: Card(
                           child: Center(
                               child: Padding(
@@ -155,20 +155,23 @@ class _ExplicitAnimatedListState extends State<ExplicitAnimatedList> {
                 key: _key1,
                 initialItemCount: myList2.length,
                 itemBuilder: (context, index, animation) {
+                  int currentIndex = index;
+                  print(currentIndex);
                   return SlideTransition(
                       child: InkWell(
                         onTap: () {
                           _removeItem(index);
                         },
                         child: Card(
+                            color: Colors.red,
                             child: Center(
                                 child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(myList2[index].toString()),
-                        ))),
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(myList2[currentIndex]),
+                            ))),
                       ),
                       position: animation.drive(
-                          Tween(begin: Offset(1, 0), end: Offset(0, 0))));
+                          Tween(begin: Offset(-1, 8), end: Offset(0, 0))));
                 },
               ),
             ),
